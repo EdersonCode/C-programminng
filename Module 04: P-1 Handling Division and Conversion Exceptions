@@ -1,0 +1,50 @@
+using System;
+
+namespace SimpleDivisionApp
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Enter the first number:");
+            string input1 = Console.ReadLine();
+            Console.WriteLine("Enter the second number:");
+            string input2 = Console.ReadLine();
+
+            PerformDivision(input1, input2);
+        }
+
+        static void PerformDivision(string num1, string num2)
+        {
+            try
+            {
+                int number1 = int.Parse(num1);
+                int number2 = int.Parse(num2);
+
+                int result = number1 / number2;
+                Console.WriteLine("Result of division: " + result);
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Error: Please enter valid numbers.");
+            }
+            catch (DivideByZeroException)
+            {
+                Console.WriteLine("Error: Cannot divide by zero.");
+            }
+            catch (OverflowException)
+            {
+                Console.WriteLine("Error: Number is too large or too small.");
+            }
+        }
+        //removing the try-catch
+        static void PerformDivisionWithoutTryCatch(string num1, string num2)
+        {
+            int number1 = int.Parse(num1);
+            int number2 = int.Parse(num2);
+
+            int result = number1 / number2;
+            Console.WriteLine("Result of division: " + result);
+        }
+    }
+}
